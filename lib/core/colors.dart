@@ -1,9 +1,9 @@
-import 'package:flutter/animation.dart';
+// ignore_for_file: non_constant_identifier_names
+
 
 class AppColors {
-  static Color blackColor = const Color(0x003d3d6b);
-  static Color whiteColor = const Color(0x00ffffff);
-  static Color themeColor = const Color(0x00ff6b35);
-  static Color subThemeColor = const Color(0x00004e89);
-  static Color backGroundColor = const Color(0x00f7c59f).withOpacity(0.5);
+  static String  greenColor = "#02231C";
+  static String seGreenColor = "#91F086";
+  static String midelGreenColor = "#48BF53";
+  static String whiteColor = "#EEF4F4";
 }

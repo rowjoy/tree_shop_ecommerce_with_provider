@@ -1,6 +1,13 @@
 // ignore_for_file: prefer_final_fields, sized_box_for_whitespace, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:tree_shop/core/colors.dart';
+import 'package:tree_shop/onbord_screen/onboard_widget/screen_one.dart';
+import 'package:tree_shop/onbord_screen/onboard_widget/screen_three.dart';
+import 'package:tree_shop/onbord_screen/onboard_widget/screen_two.dart';
+
+import '../widget/custom_button.dart';
 class OnBoardScreen extends StatefulWidget {
  // ignore: prefer_const_constructors_in_immutables
  OnBoardScreen({super.key});
@@ -21,28 +28,14 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
     "Next", "Next", "Done",
   ];
   late  List<Widget> onBoardScreens = [
-        Container(
-          color: Colors.red,
-          child: const Center(
-            child: Text("Page one"),
-          ),
-        ),
-        Container(
-          color: Colors.green,
-          child: const Center(
-            child: Text("Page two"),
-          ),
-        ),
-        Container(
-          color: Colors.yellow,
-          child: const Center(
-            child: Text("Page three"),
-          ),
-        ),
+        const ScreenOne(),
+        const ScreenTwo(),
+        const ScreenThree(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: HexColor(AppColors.whiteColor),
       body: SafeArea(
         child: Column(
           children: [
@@ -64,12 +57,11 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
             Container(
               height: 150,
               width: MediaQuery.of(context).size.width,
-              color: Colors.white,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    height: 30,
+                    height: 25,
                     width: MediaQuery.of(context).size.width,
                     child: Center(
                       child: ListView.builder(
@@ -80,10 +72,9 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Container(
-                              height: 15,
-                              width: 15,
+                              width: 11,
                               decoration:  BoxDecoration(
-                                color: currentIndex == index ?  Colors.yellow :Colors.black,
+                                color: currentIndex == index ?  HexColor(AppColors.greenColor) : HexColor(AppColors.seGreenColor),
                               ),
                             ),
                           );
@@ -91,24 +82,17 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                       ),
                     ),
                   ),
-
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: 45,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 15,right: 15),
-                      child: ElevatedButton(
-                        onPressed: (){
-                          if(currentIndex == 0 || currentIndex == 1){
-                             pageChange();
-                          }else{
-                            print("Hello");
-                          }
-                        },
-                        child: Text("${buttonName[currentIndex]}"),
-                      ),
-                    ),
-                  )
+                  CustomButton(
+                    buttonName: "${buttonName[currentIndex]}",
+                     onPressed: (){
+                      if(currentIndex == 0 || currentIndex == 1){
+                          pageChange();
+                        }else{
+                          // ignore: avoid_print
+                          print("Hello");
+                        }
+                    },
+                  ),
                 ],
               )
             ),
@@ -118,3 +102,4 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
     );
   }
 }
+
