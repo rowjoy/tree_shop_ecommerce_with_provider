@@ -8,18 +8,22 @@ class CustomButton extends StatelessWidget {
     Key? key,
     required this.buttonName,
     required this.onPressed,
+    this.padding,
+    this.width,
   }) : super(key: key);
 
   final String buttonName;
   final void Function()? onPressed;
+  final EdgeInsetsGeometry? padding;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width,
+      width: width ?? MediaQuery.of(context).size.width,
       height: 50,
       child: Padding(
-        padding: const EdgeInsets.only(left: 15,right: 15),
+        padding: padding ?? const EdgeInsets.only(left: 15,right: 15),
         child: ElevatedButton(
           onPressed: onPressed,
           style: ButtonStyle(

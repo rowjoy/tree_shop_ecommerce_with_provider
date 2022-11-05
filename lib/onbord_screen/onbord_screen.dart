@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_final_fields, sized_box_for_whitespace, unnecessary_string_interpolations
+// ignore_for_file: prefer_final_fields, sized_box_for_whitespace, unnecessary_string_interpolations, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:tree_shop/core/colors.dart';
+import 'package:tree_shop/onbord_screen/onboard_screen_two.dart';
 import 'package:tree_shop/onbord_screen/onboard_widget/screen_one.dart';
 import 'package:tree_shop/onbord_screen/onboard_widget/screen_three.dart';
 import 'package:tree_shop/onbord_screen/onboard_widget/screen_two.dart';
@@ -88,8 +89,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                       if(currentIndex == 0 || currentIndex == 1){
                           pageChange();
                         }else{
-                          // ignore: avoid_print
-                          print("Hello");
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> OnboardScrrenTwo()));
                         }
                     },
                   ),
