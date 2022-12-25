@@ -5,6 +5,8 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:tree_shop/core/colors.dart';
+import 'package:tree_shop/modules/screen_layout/base_screen_layout.dart';
+import 'package:tree_shop/modules/views/prodact_screen.dart';
 import 'package:tree_shop/widget/custom_button.dart';
 class OnboardScrrenTwo extends StatefulWidget {
   const OnboardScrrenTwo({super.key});
@@ -40,7 +42,9 @@ class _OnboardScrrenTwoState extends State<OnboardScrrenTwo> {
                     color: HexColor(AppColors.greenColor),
                   )
                 ),
-                onPressed: (){}, 
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> BaseLayoutScreen()));
+                }, 
                 child: Text("Gust user".toUpperCase(),
                   style: TextStyle(
                     color: HexColor(AppColors.greenColor),

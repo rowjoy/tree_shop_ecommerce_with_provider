@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import '../../core/colors.dart';
+import '../../../core/colors.dart';
 class ScreenThree extends StatelessWidget {
   const ScreenThree({super.key});
 

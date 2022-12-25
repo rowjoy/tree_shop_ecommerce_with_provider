@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tree_shop/onbord_screen/onbord_screen.dart';
+import 'package:tree_shop/modules/onbord_screen/onbord_screen.dart';
 class App extends StatelessWidget {
   const App({super.key});
 
