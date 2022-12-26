@@ -26,18 +26,18 @@ class _BaseLayoutScreenState extends State<BaseLayoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    floatingActionButton: FloatingActionButton.large(
-      onPressed: (){
-        setState(() {
-          selectPage = 1;
-        });
-      },
-        backgroundColor: HexColor(AppColors.greenColor),
-        child: Center(
-          child: Icon(Icons.home ,color: selectPage == 1 ? Colors.red : Colors.white ,),
-        ) ,
-      ),
+    // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    // floatingActionButton: FloatingActionButton.large(
+    //   onPressed: (){
+    //     setState(() {
+    //       selectPage = 1;
+    //     });
+    //   },
+    //     backgroundColor: HexColor(AppColors.greenColor),
+    //     child: Center(
+    //       child: Icon(Icons.home ,color: selectPage == 1 ? Colors.red : Colors.white ,),
+    //     ) ,
+    //   ),
       bottomNavigationBar: BottomAppBar(
         color: HexColor(AppColors.greenColor),
         shape: CircularNotchedRectangle(),
@@ -46,7 +46,7 @@ class _BaseLayoutScreenState extends State<BaseLayoutScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
              tapButton(context, "Cart", Icons.shopping_cart , 0),
-             SizedBox(width: MediaQuery.of(context).size.width / 9,),
+             tapButton(context, "Home", Icons.home, 1),
              tapButton(context, "Profile", Icons.person , 2),
           ],
         ),
