@@ -39,7 +39,9 @@ class _BaseLayoutScreenState extends State<BaseLayoutScreen> {
     //     ) ,
     //   ),
       bottomNavigationBar: BottomAppBar(
+        
         color: HexColor(AppColors.greenColor),
+        elevation: 2,
         shape: CircularNotchedRectangle(),
         notchMargin: 5,
         child: Row(

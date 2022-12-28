@@ -6,4 +6,5 @@ class AppColors {
   static String seGreenColor = "#91F086";
   static String midelGreenColor = "#48BF53";
   static String whiteColor = "#EEF4F4";
+  static String blackColor = "##000000";
 }

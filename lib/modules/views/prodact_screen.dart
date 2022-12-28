@@ -1,6 +1,8 @@
 
 
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,6 +18,7 @@ class ProdactScreen extends StatefulWidget {
 }
 
 class _ProdactScreenState extends State<ProdactScreen> {
+  List<String> categories = ["Rose", "Water Lily", "Beli flower" , "Sunflower" , "Marigold"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +27,7 @@ class _ProdactScreenState extends State<ProdactScreen> {
         child: Padding(
           padding: const EdgeInsets.only(left: 8,right: 8, top: 16),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
                Row(
                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,24 +35,21 @@ class _ProdactScreenState extends State<ProdactScreen> {
                   Expanded(
                      child: Container(
                        height: 60,
-                       //width: MediaQuery.of(context).size.width / 1.3,
                        decoration: BoxDecoration(
-                         color: Colors.white,
                          borderRadius: BorderRadius.circular(5),
-                         boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
+                         border: Border.all(width: 2, color: HexColor(AppColors.blackColor))
                        ),
                        child: Center(
                          child: TextField(
+                           style: TextStyle(color: HexColor(AppColors.blackColor)),
                            decoration: InputDecoration(
-                             prefixIcon: Icon(Icons.search,color: Colors.black,),
+                             prefixIcon: Icon(Icons.search,color: HexColor(AppColors.blackColor),),
                              hintText: "Search..",
+                             hintStyle: TextStyle(
+                               color: HexColor(AppColors.blackColor),
+                               fontSize: 18,
+                               letterSpacing: 2,
+                             ),
                              border: InputBorder.none,
                            ),
                          ),
@@ -57,7 +58,10 @@ class _ProdactScreenState extends State<ProdactScreen> {
                    ),
                    IconButton(
                     onPressed: (){},
-                    icon: Icon(Icons.notifications),
+                    icon: Icon(
+                      Icons.notifications,
+                      color: HexColor(AppColors.blackColor),
+                    ),
                   ),
                  ],
                ),
@@ -66,7 +70,7 @@ class _ProdactScreenState extends State<ProdactScreen> {
                  height: 250,
                  width: MediaQuery.of(context).size.width,
                  decoration: BoxDecoration(
-                   color: HexColor(AppColors.greenColor).withOpacity(0.5),
+                   border: Border.all(width: 1, color: HexColor(AppColors.blackColor)),
                    borderRadius: BorderRadius.circular(5),
                  ),
                  child: Padding(
@@ -82,8 +86,8 @@ class _ProdactScreenState extends State<ProdactScreen> {
                                  height: 45,
                                  width: 150,
                                   decoration: BoxDecoration(
-                                     color: HexColor(AppColors.seGreenColor).withOpacity(0.5),
                                      borderRadius: BorderRadius.circular(30),
+                                     border: Border.all(width: 1, color: HexColor(AppColors.blackColor))
                                   ),
                                   child: Center(
                                     child: Text(
@@ -91,19 +95,20 @@ class _ProdactScreenState extends State<ProdactScreen> {
                                       style: TextStyle(
                                         fontSize: 22,
                                         fontWeight: FontWeight.bold,
-                                        color: HexColor(AppColors.whiteColor),
+                                        color: HexColor(AppColors.blackColor),
                                         letterSpacing: 5,
                                       ),
                                     ),
                                   ),
                                ),
-                               SizedBox(height: 8,),
+                               SizedBox(height: 16,),
                                Text(
                                   "Give The Best Care For Your Plants",
                                   style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600,
-                                    color: HexColor(AppColors.whiteColor),
+                                    letterSpacing: 2,
+                                    color: HexColor(AppColors.blackColor),
                                   ),
                                 ),
                              ],
@@ -116,6 +121,47 @@ class _ProdactScreenState extends State<ProdactScreen> {
                      ],
                    ),
                  ),
+               ),
+              SizedBox(height: 16,),
+               Text("Categories",
+                style: TextStyle(
+                  color: HexColor(AppColors.blackColor),
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2,
+                  fontSize: 22,
+                ),
+               ),
+               Container(
+                 height: 80,
+                 child: ListView.builder(
+                   scrollDirection: Axis.horizontal,
+                   reverse: true,
+                   itemCount: categories.length ,
+                   shrinkWrap: true,
+                   itemBuilder:(context , index){
+                     return Padding(
+                       padding: const EdgeInsets.all(8.0),
+                       child: Container(
+                         width: MediaQuery.of(context).size.width / 2,
+                         decoration: BoxDecoration(
+                           border: Border.all(width: 2,color: HexColor(AppColors.blackColor)),
+                           borderRadius: BorderRadius.circular(10),
+                         ),
+                         child: Center(
+                           child: Text(categories[index],
+                              style: TextStyle(
+                                color: HexColor(AppColors.blackColor),
+                                fontSize: 22,
+                                fontWeight: FontWeight.w700,
+                                
+                              ),
+                            ),
+                          ),
+                       ),
+                     );
+                 
+                   }
+                  ),
                )
             ],
           ),
