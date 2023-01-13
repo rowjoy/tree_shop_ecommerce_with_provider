@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:tree_shop/core/colors.dart';
-import 'package:tree_shop/modules/onbord_screen/onboard_screen_two.dart';
+import 'package:tree_shop/modules/onbord_screen/onboard_screen_auth.dart';
 import 'package:tree_shop/modules/onbord_screen/onboard_widget/screen_one.dart';
 import 'package:tree_shop/modules/onbord_screen/onboard_widget/screen_three.dart';
 import 'package:tree_shop/modules/onbord_screen/onboard_widget/screen_two.dart';
