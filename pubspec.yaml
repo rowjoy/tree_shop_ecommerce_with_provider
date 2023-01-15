@@ -39,6 +39,7 @@ dependencies:
   flutter_svg: ^1.1.5
   hexcolor: ^3.0.1
   cuberto_bottom_bar: ^2.0.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
