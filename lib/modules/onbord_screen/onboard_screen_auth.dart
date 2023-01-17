@@ -28,7 +28,7 @@ class _OnboardScrrenTwoState extends State<OnboardScrrenTwo> {
           children: [
             AspectRatio(
               aspectRatio: 1,
-              child: Image.asset("assets/images/onboard_tree.png"),
+              child: Image.asset("assets/images/tree_two.png"),
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width,
