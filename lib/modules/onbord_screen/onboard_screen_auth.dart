@@ -88,7 +88,6 @@ class _OnboardScrrenTwoState extends State<OnboardScrrenTwo> {
                       ),
                     ),
                   ),
-                  
                   CustomButton(
                     width: MediaQuery.of(context).size.width / 2.5,
                     padding: const EdgeInsets.all(0.0),
