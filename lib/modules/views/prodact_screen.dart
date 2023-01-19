@@ -27,76 +27,18 @@ class _ProdactScreenState extends State<ProdactScreen> {
   List<String> categories = ["Rose", "Water Lily", "Beli flower" , "Sunflower" , "Marigold"];
   int sliderindex = 0;
   int selectCatagori = 0;
+  int favorite = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.withOpacity(0.1),
       body: SingleChildScrollView(
-        reverse: true,
+        reverse: false,
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(
               children: [
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Material(
-                        elevation: 2,
-                        borderRadius: BorderRadius.circular(50),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Icon(Icons.auto_awesome_mosaic_sharp, color: HexColor(AppColors.greenColor),),
-                        )
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Stack(
-                              children: [
-                                Material(
-                                  elevation: 2,
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Icon(Icons.shopping_cart),
-                                  )
-                                ),
-                                Transform.translate(
-                                  offset: Offset(30, 0.5),
-                                  child: CircleAvatar(
-                                    radius: 10,
-                                    backgroundColor: Colors.red,
-                                    child: Text("0"),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(width: 32,),
-                            Stack(
-                              clipBehavior: Clip.antiAlias,
-                               // ignore: prefer_const_literals_to_create_immutables
-                               children: [
-                                  CircleAvatar(
-                                    child: Icon(Icons.person),
-                                  ),
-                                 Transform.translate(
-                                    offset: Offset(32, 4.0),
-                                    child: CircleAvatar(
-                                      radius: 5,
-                                      backgroundColor: HexColor(AppColors.greenColor),
-                                    ),
-                                  ),
-                               ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 15,),
                 Container(
                   child: Row(
                     children: [
@@ -197,7 +139,7 @@ class _ProdactScreenState extends State<ProdactScreen> {
                     ),
                     InkWell(
                       onTap: (){
-      
+                        
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(2.0),
@@ -221,7 +163,7 @@ class _ProdactScreenState extends State<ProdactScreen> {
                     crossAxisSpacing: 6,
                    // childAspectRatio: 100 / 130,
                   ),
-                  itemCount: 20,
+                  itemCount: 10,
                   itemBuilder: ( BuildContext context , i) {
                     return Stack(
                       children: [
@@ -241,33 +183,57 @@ class _ProdactScreenState extends State<ProdactScreen> {
                         Positioned(
                           bottom: 0,
                           child: Container(
+                            padding: EdgeInsets.all(8),
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Hello"),
-                                Text("Hello")
-                                
+                                Container(
+                                  height: 20,
+                                  child: ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: 5,
+                                    scrollDirection: Axis.horizontal,
+                                    itemBuilder: (BuildContext context, index){
+                                        return Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Icon(Icons.star_rate,size: 20, color: Colors.yellow,),
+                                        );
+                                    },
+                                  ),
+                                ),
+                                Text("Rose tree", 
+                                  style: TextStyle(
+                                    color: HexColor(AppColors.greenColor),
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    Text("\$400 Price" , 
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(width: 25,),
+                                    InkWell(
+                                      onTap: (){
+                                        setState(() {
+                                          favorite = i;
+                                        });
+                                      },
+                                      child: favorite == i ? Icon(Icons.favorite ,color: Colors.red ,) : Icon(Icons.favorite_border_outlined,color: Colors.grey,),
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
                           ),
                         ),
                       ],
                     );
-                    // return Material(
-                    //   elevation: 5,
-                    //   borderRadius: BorderRadius.circular(10),
-                    //   child: Container(
-                    //     margin: EdgeInsets.all(2),
-                    //     decoration: BoxDecoration(
-                    //       borderRadius: BorderRadius.circular(10),
-                    //       color: HexColor(AppColors.greenColor).withOpacity(0.3),
-                    //     ),
-                    //     child: Column(
-                    //       children: [
-
-                    //       ],
-                    //     )
-                    //   ),
-                    // );
                   }
                 ),
               ],
