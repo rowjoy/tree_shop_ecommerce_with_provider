@@ -89,19 +89,18 @@ class _BaseLayoutScreenState extends State<BaseLayoutScreen> {
                     SizedBox(width: 32,),
                     Stack(
                       clipBehavior: Clip.antiAlias,
-                        // ignore: prefer_const_literals_to_create_immutables
-                        children: [
-                          CircleAvatar(
-                            child: Icon(Icons.person),
+                      children: [
+                        CircleAvatar(
+                          child: Icon(Icons.person),
+                        ),
+                        Transform.translate(
+                          offset: Offset(32, 4.0),
+                          child: CircleAvatar(
+                            radius: 5,
+                            backgroundColor: HexColor(AppColors.greenColor),
                           ),
-                          Transform.translate(
-                            offset: Offset(32, 4.0),
-                            child: CircleAvatar(
-                              radius: 5,
-                              backgroundColor: HexColor(AppColors.greenColor),
-                            ),
-                          ),
-                        ],
+                        ),
+                      ],
                     ),
                   ],
                 ),

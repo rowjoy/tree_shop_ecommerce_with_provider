@@ -11,6 +11,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:tree_shop/core/colors.dart';
+import 'package:tree_shop/modules/views/prodact_details_screen.dart';
 
 import '../../widget/custom_categories_button.dart';
 import '../../widget/custom_slider_design.dart';
@@ -165,74 +166,86 @@ class _ProdactScreenState extends State<ProdactScreen> {
                   ),
                   itemCount: 10,
                   itemBuilder: ( BuildContext context , i) {
-                    return Stack(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: HexColor(AppColors.greenColor).withOpacity(0.3),
-                          ),
-                        ),
-                       Transform.translate(
-                         offset: Offset(0, -40),
-                         child: AspectRatio(
-                           aspectRatio: 1.5,
-                           child: Image.asset("assets/images/tree_two.png"),
-                         ),
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          child: Container(
-                            padding: EdgeInsets.all(8),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 20,
-                                  child: ListView.builder(
-                                    shrinkWrap: true,
-                                    itemCount: 5,
-                                    scrollDirection: Axis.horizontal,
-                                    itemBuilder: (BuildContext context, index){
-                                        return Padding(
-                                          padding: const EdgeInsets.all(2.0),
-                                          child: Icon(Icons.star_rate,size: 20, color: Colors.yellow,),
-                                        );
-                                    },
-                                  ),
-                                ),
-                                Text("Rose tree", 
-                                  style: TextStyle(
-                                    color: HexColor(AppColors.greenColor),
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Text("\$400 Price" , 
-                                      style: TextStyle(
-                                        color: Colors.red,
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    SizedBox(width: 25,),
-                                    InkWell(
-                                      onTap: (){
-                                        setState(() {
-                                          favorite = i;
-                                        });
-                                      },
-                                      child: favorite == i ? Icon(Icons.favorite ,color: Colors.red ,) : Icon(Icons.favorite_border_outlined,color: Colors.grey,),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                    return InkWell(
+                      onTap: (){
+                        Navigator.push(
+                          context, 
+                          MaterialPageRoute(
+                          builder: ((context) => ProdactDetailsScreen(image: "assets/images/tree_two.png",tag: i,)),
+                          ));
+                      },
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: HexColor(AppColors.greenColor).withOpacity(0.3),
                             ),
                           ),
-                        ),
-                      ],
+                         Hero(
+                           tag: i,
+                           child: Transform.translate(
+                             offset: Offset(0, -40),
+                             child: AspectRatio(
+                               aspectRatio: 1.5,
+                               child: Image.asset("assets/images/tree_two.png"),
+                             ),
+                            ),
+                         ),
+                          Positioned(
+                            bottom: 0,
+                            child: Container(
+                              padding: EdgeInsets.all(8),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 20,
+                                    child: ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: 5,
+                                      scrollDirection: Axis.horizontal,
+                                      itemBuilder: (BuildContext context, index){
+                                          return Padding(
+                                            padding: const EdgeInsets.all(2.0),
+                                            child: Icon(Icons.star_rate,size: 20, color: Colors.yellow,),
+                                          );
+                                      },
+                                    ),
+                                  ),
+                                  Text("Rose tree", 
+                                    style: TextStyle(
+                                      color: HexColor(AppColors.greenColor),
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text("\$400 Price" , 
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(width: 25,),
+                                      InkWell(
+                                        onTap: (){
+                                          setState(() {
+                                            favorite = i;
+                                          });
+                                        },
+                                        child: favorite == i ? Icon(Icons.favorite ,color: Colors.red ,) : Icon(Icons.favorite_border_outlined,color: Colors.grey,),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     );
                   }
                 ),
