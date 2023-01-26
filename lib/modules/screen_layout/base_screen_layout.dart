@@ -5,7 +5,7 @@ import 'package:cuberto_bottom_bar/cuberto_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:tree_shop/core/colors.dart';
-import 'package:tree_shop/modules/views/cart_screen.dart';
+import 'package:tree_shop/modules/views/card_screen.dart';
 import 'package:tree_shop/modules/views/like_prodect_screen.dart';
 import 'package:tree_shop/modules/views/live_chat_screen.dart';
 import 'package:tree_shop/modules/views/prodact_screen.dart';
@@ -48,7 +48,7 @@ class _BaseLayoutScreenState extends State<BaseLayoutScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: HexColor(AppColors.whiteColor),
+       backgroundColor: HexColor(AppColors.whiteColor),
         leading: Padding(
           padding: const EdgeInsets.all(5.0),
           child: Material(

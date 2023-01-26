@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_string_interpolations
+
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -10,12 +12,14 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.padding,
     this.width,
+    this.backgroundColor,
   }) : super(key: key);
 
   final String buttonName;
   final void Function()? onPressed;
   final EdgeInsetsGeometry? padding;
   final double? width;
+  final MaterialStateProperty<Color?>? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +31,7 @@ class CustomButton extends StatelessWidget {
         child: ElevatedButton(
           onPressed: onPressed,
           style: ButtonStyle(
-            backgroundColor: MaterialStatePropertyAll<Color>(HexColor(AppColors.greenColor)),
+            backgroundColor: backgroundColor ?? MaterialStatePropertyAll<Color>(HexColor(AppColors.greenColor)),
           ),
           child: Text("$buttonName".toUpperCase(),
             style: TextStyle(

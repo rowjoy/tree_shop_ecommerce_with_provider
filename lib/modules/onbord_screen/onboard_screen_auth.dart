@@ -3,11 +3,16 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:tree_shop/core/colors.dart';
+import 'package:tree_shop/modules/login_registration/login_screen.dart';
+import 'package:tree_shop/modules/login_registration/registration_screen.dart';
 import 'package:tree_shop/modules/screen_layout/base_screen_layout.dart';
 import 'package:tree_shop/modules/views/prodact_screen.dart';
 import 'package:tree_shop/widget/custom_button.dart';
+
+import '../../widget/custom_outline_button.dart';
 class OnboardScrrenTwo extends StatefulWidget {
   const OnboardScrrenTwo({super.key});
 
@@ -30,70 +35,44 @@ class _OnboardScrrenTwoState extends State<OnboardScrrenTwo> {
               aspectRatio: 1,
               child: Image.asset("assets/images/tree_two.png"),
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: 50,
-              child: OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  backgroundColor: HexColor(AppColors.whiteColor),
-                  elevation: 0,
-                  side: BorderSide(
-                    width: 2,
-                    color: HexColor(AppColors.greenColor),
-                  )
-                ),
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> BaseLayoutScreen()));
-                }, 
-                child: Text("Gust user".toUpperCase(),
-                  style: TextStyle(
-                    color: HexColor(AppColors.greenColor),
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+            CustomOutlineButton(
+              buttonName: "Guest user",
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> ProdactScreen() ));
+              },
             ),
-            const SizedBox(height: 16,),
+            SizedBox(height: 16,),
             CustomButton(
-              buttonName: "Registion",
+              buttonName: "Login",
               padding: const EdgeInsets.all(0.0),
               onPressed: (){
-
-                },
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()) );
+              },
              ),
+            const SizedBox(height: 16,),
+            CustomOutlineButton(
+              buttonName: "Registion",
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: ((context) => RegistionScreen()) ));
+              }
+            ),
             SizedBox(height: 35,),
              Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               mainAxisAlignment: MainAxisAlignment.center,
                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 2.5 ,
-                    height: 50,
-                    child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        backgroundColor: HexColor(AppColors.whiteColor),
-                        elevation: 0,
-                        side: BorderSide(
-                          width: 2,
-                          color: HexColor(AppColors.greenColor),
-                        )
-                      ),
-                      onPressed: (){}, 
-                      child: Text("Google".toUpperCase(),
-                        style: TextStyle(
-                          color: HexColor(AppColors.greenColor),
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  CustomButton(
-                    width: MediaQuery.of(context).size.width / 2.5,
-                    padding: const EdgeInsets.all(0.0),
-                    buttonName: "FaceBook",
-                    onPressed: (){}
-                  ),
+                 IconButton(
+                  onPressed: (){
+
+                  },
+                  icon: SvgPicture.asset("assets/icon/icons8-facebook.svg"),
+                 ),
+                 SizedBox(width: 8,),
+                 IconButton(
+                  onPressed: (){
+
+                  },
+                  icon: SvgPicture.asset("assets/icon/icons8-google.svg"),
+                 ),
                ],
              ),
              SizedBox(height: 25,),
@@ -111,3 +90,4 @@ class _OnboardScrrenTwoState extends State<OnboardScrrenTwo> {
     );
   }
 }
+

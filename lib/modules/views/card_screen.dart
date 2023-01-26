@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:tree_shop/core/colors.dart';
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
 
@@ -10,12 +12,9 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Container(
-            child: Text("Card"),
-          ),
-        ),
+      backgroundColor: HexColor(AppColors.whiteColor),
+      body: const SafeArea(
+        child: Text("Card"),
       ),
     );
   }
