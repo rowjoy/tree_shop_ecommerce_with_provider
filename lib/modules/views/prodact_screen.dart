@@ -27,7 +27,7 @@ class _ProdactScreenState extends State<ProdactScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.withOpacity(0.1),
+      backgroundColor: HexColor(AppColors.whiteColor),
       body: SingleChildScrollView(
         reverse: false,
         child: SafeArea(
@@ -173,7 +173,7 @@ class _ProdactScreenState extends State<ProdactScreen> {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(5),
                               color: HexColor(AppColors.greenColor).withOpacity(0.3),
                             ),
                           ),
@@ -219,7 +219,7 @@ class _ProdactScreenState extends State<ProdactScreen> {
                                     children: [
                                       Text("\$400 Price" , 
                                         style: TextStyle(
-                                          color: Colors.red,
+                                          color: Colors.white,
                                           fontSize: 22,
                                           fontWeight: FontWeight.bold,
                                         ),

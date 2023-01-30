@@ -38,7 +38,7 @@ class _OnboardScrrenTwoState extends State<OnboardScrrenTwo> {
             CustomOutlineButton(
               buttonName: "Guest user",
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> ProdactScreen() ));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> BaseLayoutScreen() ));
               },
             ),
             SizedBox(height: 16,),

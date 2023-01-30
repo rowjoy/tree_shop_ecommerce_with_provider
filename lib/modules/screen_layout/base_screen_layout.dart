@@ -10,6 +10,8 @@ import 'package:tree_shop/modules/views/like_prodect_screen.dart';
 import 'package:tree_shop/modules/views/live_chat_screen.dart';
 import 'package:tree_shop/modules/views/prodact_screen.dart';
 import 'package:tree_shop/modules/views/profile_screen.dart';
+
+import '../../widget/custom_appbar.dart';
 class BaseLayoutScreen extends StatefulWidget {
   const BaseLayoutScreen({super.key});
 
@@ -45,71 +47,7 @@ class _BaseLayoutScreenState extends State<BaseLayoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        elevation: 0,
-       backgroundColor: HexColor(AppColors.whiteColor),
-        leading: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: Material(
-            elevation: 2,
-            borderRadius: BorderRadius.circular(40),
-            child: Icon(Icons.auto_awesome_mosaic_sharp, color: HexColor(AppColors.greenColor),),
-          ),
-        ),
-       actions: [
-         Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                padding: EdgeInsets.only(right: 8),
-                child: Row(
-                  children: [
-                    Stack(
-                      children: [
-                        Material(
-                          elevation: 2,
-                          borderRadius: BorderRadius.circular(50),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Icon(Icons.shopping_cart,color: HexColor(AppColors.greenColor),),
-                          )
-                        ),
-                        Transform.translate(
-                          offset: Offset(30, 0.5),
-                          child: CircleAvatar(
-                            radius: 10,
-                            backgroundColor: Colors.red,
-                            child: Text("0"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(width: 32,),
-                    Stack(
-                      clipBehavior: Clip.antiAlias,
-                      children: [
-                        CircleAvatar(
-                          child: Icon(Icons.person),
-                        ),
-                        Transform.translate(
-                          offset: Offset(32, 4.0),
-                          child: CircleAvatar(
-                            radius: 5,
-                            backgroundColor: HexColor(AppColors.greenColor),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-       ],
-      ),
+      appBar: CustomAppBar(),
       bottomNavigationBar: SizedBox(
         height: 70,
         child: CubertoBottomBar(
@@ -136,6 +74,10 @@ class _BaseLayoutScreenState extends State<BaseLayoutScreen> {
     );
   }
 }
+
+
+
+
 
 
 
